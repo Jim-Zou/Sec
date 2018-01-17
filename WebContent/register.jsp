@@ -31,16 +31,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="current"><em></em>填写注册信息</li>
 				<li class="last"><em></em>注册成功</li>
 			</ul>
-			<form id="regForm" method="post" action="doAction?action=register" ><!-- onsubmit="return checkForm(this)" -->
+			<form id="regForm" method="post" action="doAction?action=register" onsubmit="return checkForm(this)"><!-- onsubmit="return checkForm(this)" -->
 				<table>
 					<tr>
 						<td class="field">用户名：</td>
 						<!-- onfocus="FocusItem(this)" " -->
-						<td><input  id="userName" class="text" type="text" name="userName"   maxlength="15" onblur="CheckItem(this);"/><span id="uName"></span></td>
+						<td><input  id="userName" class="text" type="text" name="userName"   maxlength="15" onfocus="FocusItem(this)" onblur="CheckItem(this);"/><span id="uName"></span></td>
 					</tr>
 					<tr>
 						<td class="field">登录密码：</td>
-						<td><input class="text" type="password" id="passWord" name="passWord" onfocus="FocusItem(this)" onblur="CheckItem(this);" value="1234"/><span></span></td>
+						<td><input class="text" type="password" id="passWord" name="passWord" onfocus="FocusItem(this)" onblur="CheckItem(this);" value=" "/>1234<span></span></td>
 					</tr>
 					<tr>
 						<td class="field">确认密码：</td>
@@ -60,8 +60,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<tr>
 						<td class="field">电子邮件：</td>
-						<!-- onfocus="FocusItem(this)" onblur="CheckItem(this);" -->
-						<td><input value="sa@sina.com" class="text" type="text" name="email"  onmouseout="checkEmail()"/><span id="uemail"></span></td>
+						<!-- onfocus="FocusItem(this)" onblur="CheckItem(this);" onmouseout="checkEmail()"-->
+						<td><input value="sa@sina.com" class="text" type="text" name="email"   onfocus="FocusItem(this)" onblur="CheckItem(this);"/><span id="uemail"></span></td>
 					</tr>
 					<tr>
 						<td class="field">手机：</td>
