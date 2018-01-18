@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li class="current"><em></em>填写注册信息</li>
 				<li class="last"><em></em>注册成功</li>
 			</ul>
-			<form id="regForm" method="post" action="doAction?action=register" onsubmit="return checkForm(this)"><!-- onsubmit="return checkForm(this)" -->
+			<form id="regForm" method="post" ><!--action="doAction?action=register" onsubmit="return checkForm(this)" -->
 				<table>
 					<tr>
 						<td class="field">用户名：</td>
@@ -40,11 +40,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<tr>
 						<td class="field">登录密码：</td>
-						<td><input class="text" type="password" id="passWord" name="passWord" onfocus="FocusItem(this)" onblur="CheckItem(this);" value=" "/>1234<span></span></td>
+						<td><input class="text" type="password" id="passWord" name="passWord" onfocus="FocusItem(this)" onblur="CheckItem(this);" value=""/><span></span></td>
 					</tr>
 					<tr>
 						<td class="field">确认密码：</td>
-						<td><input value="1234" class="text" type="password" name="rePassWord" onfocus="FocusItem(this)" onblur="CheckItem(this);" /><span></span></td>
+						<td><input class="text" type="password" name="rePassWord" onfocus="FocusItem(this)" onblur="CheckItem(this);" value=""/><span></span></td>
 					</tr>
 					<tr>
 						<td class="field">性别：</td>
@@ -52,24 +52,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<tr>
 						<td class="field">出生日期：</td>
-						<td><input value="1990-01-01" class="text" type="text" name="birthday" onfocus="FocusItem(this)" onblur="CheckItem(this);" /><span></span></td>
+						<td><input class="text" type="text" name="birthday" onfocus="FocusItem(this)" onblur="CheckItem(this);" value=""/><span>1990-01-01</span></td>
 					</tr>
 					<tr>
 						<td class="field">身份证：</td>
-						<td><input value="500235198907026299" class="text" type="text" name="identity" onfocus="FocusItem(this)" onblur="CheckItem(this);" /><span></span></td>
+						<td><input class="text" type="text" name="identity" onfocus="FocusItem(this)" onblur="CheckItem(this);" value="" /><span>500235198907026299</span></td>
 					</tr>
 					<tr>
 						<td class="field">电子邮件：</td>
 						<!-- onfocus="FocusItem(this)" onblur="CheckItem(this);" onmouseout="checkEmail()"-->
-						<td><input value="sa@sina.com" class="text" type="text" name="email"   onfocus="FocusItem(this)" onblur="CheckItem(this);"/><span id="uemail"></span></td>
+						<td><input class="text" type="text" name="email"   onfocus="FocusItem(this)" onblur="CheckItem(this);" value=""/><span id="uemail">sa@sina.com</span></td>
 					</tr>
 					<tr>
 						<td class="field">手机：</td>
-						<td><input value="13011092066" class="text" type="text" name="mobile" onfocus="FocusItem(this)" onblur="CheckItem(this);" /><span></span></td>
+						<td><input class="text" type="text" name="mobile" onfocus="FocusItem(this)" onblur="CheckItem(this);"  value=""/><span>13011092066</span></td>
 					</tr>
 					<tr>
 						<td class="field">地址：</td>
-						<td><input value="上海" class="text" type="text" name="address" onfocus="FocusItem(this)" onblur="CheckItem(this);" /><span></span></td>
+						<td><input class="text" type="text" name="address" onfocus="FocusItem(this)" onblur="CheckItem(this);"  value=""/><span>上海</span></td>
 					</tr>
 					<tr>
 						<td class="field">验证码：</td>
@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</tr>
 					<tr>
 						<td></td>
-						<td><label class="ui-green"><input type="button" name="submit" value="提交注册" onclick="myFormPost()"/></label></td>
+						<td><label class="ui-green"><input type="button" name="submit" value="提交注册" onmousedown="" onclick="myFormPost()"/></label></td>
 					</tr>
 				</table>
 			</form>
@@ -89,8 +89,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	Copyright &copy; 2016 上海海文 All Rights Reserved. 京ICP证1000001号
 </div>
 <script type="text/javascript">
+
+
+
 	function myFormPost(){
-		//发送一个ajax请求给后台
+		//获取id为regform的表单
+		var Cfm= $("#regform");
+			//验证表单数据
+
+			
+			if(checkForm(Cfm)){
+		//如果表单验证成功,发送一个ajax请求给后台
 		$.ajax({
 			type:"post",
 			url:"doAction?action=register",
@@ -100,13 +109,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					alert("注册成功");
 					//页面跳转
 					window.location.href="login.jsp";
-				}else if(msg==-1){//用户名已存在
-					alert("用户名已存在");
 				}else{
 					alert("注册失败");
 				}
 			}
 		});
+		}
 	}
 
 </script>

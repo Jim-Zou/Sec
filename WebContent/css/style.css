@@ -78,8 +78,10 @@ a:hover, a:active { color:#3a52a8; text-decoration:underline; }
 #register form table td input.text { border-left:1px solid #686868; border-top:1px solid #686868; border-bottom:1px solid #b6b6b6; border-right:1px solid #b6b6b6; padding:3px 4px; width:200px; }
 #register form table td input.verycode { width:120px; }
 #register form table td #veryCode { vertical-align:middle; width:70px; height:23px; margin-left:10px; }
-#register form table td span { display:none; vertical-align:middle; margin-left:10px; padding-left:22px; padding-right:10px; background:url(../images/bg.png) -232px -63px no-repeat; }
-#register form table td span.error { display:inline-block; border:1px solid #ff835a; background-color:#ffe8e0; }
+
+#register form table tr td span { display:none; vertical-align:middle; margin-left:10px; padding-left:22px; padding-right:10px; background:url(../images/bg.png) -232px -64px no-repeat;}
+#register form table td span.normal { display:none; vertical-align:middle; margin-left:10px; padding-left:22px; padding-right:10px;  background:url(../images/bg.png) -232px -107px no-repeat;}
+#register form table td span.error { display:inline-block; border:1px solid #ff835a; background-color:#ffe8e0;}
 #register form table .current { background:#edffd5; }
 #register form label.ui-green { height:30px;}
 #register form label.ui-green input { font-size:18px; font-weight:bold; line-height:32px; height:30px; padding:0 15px; }

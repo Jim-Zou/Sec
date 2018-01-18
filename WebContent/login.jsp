@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="box">
 			<h1>欢迎回到亚马逊</h1>
 			<!-- onsubmit="return loginCheck()" -->
-			<form id="loginForm" method="post" action="doAction?action=login" >
+			<form id="loginForm" method="post" onsubmit="return loginCheck()" >
 				<table>
 					<tr>
 						<td class="field">用户名：</td>
@@ -54,5 +54,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="footer">
 	Copyright &copy; 2016  上海海文 All Rights Reserved
 </div>
+<script type="text/javascript">
+
+
+
+	function myFormPost(){
+		//获取id为regform的表单
+		var Cfm= $("#loginForm");
+			//验证表单数据		
+			if(checkForm(Cfm)){
+		//如果表单验证成功,发送一个ajax请求给后台
+		$.ajax({
+			type:"post",
+			url:"doAction?action=login",
+			data:$("form").serialize(), 
+			success:function (msg){
+				if(msg==1){//注册成功
+					alert("注册成功");
+					//页面跳转
+					//window.location.href="login.jsp";
+				}else{
+					alert("登陆失败");
+				}
+			}
+		});
+		}
+	}
+
+</script>
 </body>
 </html>
